@@ -1,0 +1,16 @@
+body{
+  background:#2f1011;
+}
+
+#map{
+ width: 600px; height: 300px;
+  position:absolute;
+  left:520px;
+   border: solid 1px gray;
+  height:500px;
+  width:900px;
+  transform: scale(1);
+  & svg {
+    
+  }
+}

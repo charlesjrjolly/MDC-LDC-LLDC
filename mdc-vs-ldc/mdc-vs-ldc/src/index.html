@@ -1,0 +1,239 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="https://datamaps.github.io/scripts/datamaps.world.min.js"></script>
+
+<h1> Most developed countries vs least developed countries </h1>
+
+<div id="map">
+  
+</div>
+
+<button onclick="green()" style="background-color:green; width:50px; height:50px;"> MDC </button>
+<button  onclick="yellow()" style="background-color:yellow; width:50px; height:50px;"> LDC </button>
+<button onclick="red()" style="background-color:red; width:50px; height:50px;"> LLDC </button>
+
+<script>
+    var map = new Datamap({
+        element: document.getElementById('map'),
+        projection: 'mercator',
+      
+
+      geographyConfig: {
+            highlightOnHover: true,
+            popupOnHover: true
+        },
+      
+      
+          fills:{
+            defaultFill:"#E4D00A",
+    'CAN': 'green',
+    'NOR': "green", 
+    'POL': "green",       
+     "SWE": "green",      
+       "JPN": "green",    
+        "ANDO": "green",
+            "AUS": "green",
+            "PRY": "green",
+             "QAT": "green",
+              "ESP": "green",
+            "USA" : "green",
+            "ARE" : "green",
+             "BHR" : "green",
+            "BEL" : "green",
+             "AUT" : "green",
+              "BRB" : "green",
+             "BRN" : "green",
+              "CYP" : "green",
+               "DNK" : "green",
+                "FIN" : "green",
+             "FRA" : "green",
+             "EST" : "green",
+             "GRC" : "green",
+             "DEU" : "green",
+             "CZE" : "green",
+             "HKG" : "green",
+             "HUN" : "green",
+             "ISL" : "green",
+             "ISR" : "green",
+             "ITA" : "green",
+             "KOR" : "green",
+              "CHN" : "green",
+             "LIE" : "green",
+             "LUX" : "green",
+             "NLD" : "green",
+             "NZL" : "green",
+             "IRL" : "green",
+             "PRT" : "green",
+             "GBR" : "green",
+             "CHE" : "green",
+             "SGP" : "green",
+             "SVN" : "green",
+            
+            
+            //LLDC
+             "TGO" : "red",
+             "UGA" : "red",
+              "ZWE" : "red",
+             "YEM" : "red",
+             "TZA" : "red",
+             "AFG" : "red",
+             "AGO" : "red",
+            "ZMB" : "red",
+            "KEN" : "red",
+             "HTI" : "red",
+             "GIN" : "red",
+             "GNB" : "red",
+             "GHA" : "red",
+             "GMB" : "red",
+             "ETH" : "red",
+             "CIV" : "red",
+             "COD" : "red",
+             "COG" : "red",
+            "COM" : "red",
+            "TCD" : "red",
+            "BDI" : "red",
+            "BFA" : "red",
+            "BEN" : "red",
+            "BGD" : "red",
+            "MLI" : "red",
+             "LBR" : "red",
+             "MDG" : "red",
+             "MUS" : "red",
+             "MWI" : "red",
+             "NPL" : "red",
+              "MRT" : "red",
+              "NER" : "red",
+             "NGA" : "red",
+             "PNG" : "red",
+             "NER" : "red",
+             "RWA" : "red",
+             "SEN" : "red",
+             "SLE" : "red",
+             "MOZ" : "red",
+             "DJI" : "red",
+             "CMR" : "red",
+            "CAF" : "red",
+            "SDN" : "red",
+             "SOM" : "red",
+              "MMR" : "red",
+            
+            
+            
+            
+      
+
+
+
+            
+            
+            
+            
+          },
+      
+      data:{
+        'CAN': { fillKey: "CAN" },
+        'SVN': { fillKey: "SVN" },
+        'NOR':{ fillKey: "NOR" },
+        'POL': { fillKey: "POL" },
+        "SWE": { fillKey: "SWE" },
+        "JPN": { fillKey: "JPN" },
+         "ANDO": { fillKey: "ANDO" }, 
+        "AUS": { fillKey: "AUS" }, 
+          "QAT": { fillKey: "QAT" }, 
+         "ESP": { fillKey: "ESP" }, 
+           "USA": { fillKey: "USA" }, 
+         "ARE": { fillKey: "ARE" }, 
+          "BHR": { fillKey: "BHR" }, 
+             "BEL": { fillKey: "BEL" }, 
+         "AUT": { fillKey: "AUT" }, 
+           "BRB": { fillKey: "BRB" }, 
+         "BRN": { fillKey: "BRN" }, 
+             "CYP": { fillKey: "CYP" }, 
+        "DNK": { fillKey: "DNK" }, 
+         "FIN": { fillKey: "FIN" }, 
+          "FRA": { fillKey: "FIN" }, 
+          "EST": { fillKey: "EST" }, 
+         "GRC": { fillKey: "GRC" }, 
+         "DEU": { fillKey: "GRC" }, 
+          "CZE": { fillKey: "CZE" }, 
+        "HKG": { fillKey: "HKG" }, 
+         "HUN": { fillKey: "HUN" }, 
+           "ISL": { fillKey: "ISL" }, 
+          "ISR": { fillKey: "ISR" }, 
+         "ITA": { fillKey: "ITA" }, 
+         "KOR": { fillKey: "KOR" }, 
+         "CHN": { fillKey: "CHN" }, 
+        "LIE": { fillKey: "LIE" }, 
+        "LUX": { fillKey: "LUX" }, 
+        "NLD": { fillKey: "NLD" }, 
+         "NZL": { fillKey: "NZL" }, 
+        "IRL": { fillKey: "IRL" }, 
+         "PRT": { fillKey: "PRT" }, 
+          "GBR": { fillKey: "GBR" }, 
+          "CHE": { fillKey: "CHE" }, 
+         "SGP": { fillKey: "SGP" }, 
+        
+        //LDC
+        
+        "TGO": { fillKey: "TGO" }, 
+          
+        "UGA": { fillKey: "UGA" }, 
+         "AGO": { fillKey: "AGO" }, 
+         "AFG": { fillKey: "AFG" }, 
+           "ZWE": { fillKey: "ZWE" }, 
+            "YEM": { fillKey: "YEM" }, 
+             "TZA": { fillKey: "TZA" }, 
+              "ZMB": { fillKey: "ZMB" }, 
+         "KEN": { fillKey: "KEN" }, 
+         "HTI": { fillKey: "HTI" }, 
+         "GIN": { fillKey: "GIN" }, 
+         "GNB": { fillKey: "GNB" },
+         "GHA": { fillKey: "GHA" },
+         "GMB": { fillKey: "GMB" }, 
+         "ETH": { fillKey: "ETH" }, 
+         "CIV": { fillKey: "CIV" }, 
+         "COG": { fillKey: "COG" }, 
+           "COD": { fillKey: "COG" }, 
+           "COM": { fillKey: "COM" }, 
+           "TCD": { fillKey: "TCD" }, 
+           "BDI": { fillKey: "BDI" }, 
+           "BFA": { fillKey: "BFA" }, 
+          "BEN": { fillKey: "BEN" }, 
+           "BGD": { fillKey: "BGD" }, 
+           "MLI": { fillKey: "MLI" }, 
+             "LBR": { fillKey: "LBR" }, 
+          "MDG": { fillKey: "MDG" },
+          "MUS": { fillKey: "MUS" }, 
+         "MLI": { fillKey: "MLI" }, 
+         "LBR": { fillKey: "LBR" }, 
+         "MDG": { fillKey: "MDG" }, 
+         "MWI": { fillKey: "MWI" }, 
+         "NPL": { fillKey: "NPL" }, 
+         "MRT": { fillKey: "MRT" }, 
+         "NER": { fillKey: "NER" }, 
+         "NGA": { fillKey: "NGA" }, 
+         "PNG": { fillKey: "PNG" }, 
+         "RWA": { fillKey: "RWA" }, 
+          "SEN": { fillKey: "SEN" }, 
+           "SLE": { fillKey: "SLE" }, 
+           "MOZ": { fillKey: "MOZ" }, 
+         "DJI": { fillKey: "DJI" }, 
+         "CMR": { fillKey: "CMR" }, 
+          "CAF": { fillKey: "CAF" }, 
+        "SDN": { fillKey: "SDN" }, 
+         "SOM": { fillKey: "SOM" }, 
+         "MMR": { fillKey: "MMR" }, 
+
+
+
+
+        
+          
+        
+       
+
+      },
+
+      
+    });
+</script>
